@@ -1,0 +1,16 @@
+[package]
+name = "salesman"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+genevo = "0.7.1"
+petgraph = "0.6.3"
+probability = "0.20.3"
+rand = "0.8.5"
+itertools = "0.10.5"
+gnuplot = "0.0.37"
+la = "0.2.0"
+linregress = "0.5.1"
