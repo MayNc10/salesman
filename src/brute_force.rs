@@ -2,11 +2,11 @@ use crate::layout::Layout;
 use itertools::{Itertools, TupleWindows};
 use petgraph::{graph::{NodeIndex, Node}, Graph, Undirected};
 
-pub fn solve(g: Graph::<(), u32, Undirected>) -> (Vec<NodeIndex>, u32) {
+pub fn solve(g: Graph::<(), u32, Undirected>) -> u32 {
     // gen all possible loops
     let nodes = (0..g.node_count()).map(|x| NodeIndex::from(x as u32));
     let perms = nodes.permutations(g.node_count());
-    let mut best_path = Vec::new();
+    //let mut best_path = Vec::new();
     let mut best_length = g.edge_weights().sum::<u32>() * 100_u32;
     for path in perms {
         let mut len = 0;
@@ -20,9 +20,9 @@ pub fn solve(g: Graph::<(), u32, Undirected>) -> (Vec<NodeIndex>, u32) {
             len += e.weight();
         }
         if len < best_length {
-            best_path = path.clone();
+            //best_path = path.clone();
             best_length = len;
         }
     }
-    return (best_path, best_length)
+    return best_length
 }

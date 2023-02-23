@@ -122,7 +122,7 @@ pub fn find_optimal_params(size: usize, dis_max: u32, sample_size: Option<usize>
         for point in 0..sample_size {
             let l = rand_layout(size, dis_max);
             let ai_best = sim(l.clone(), pop_size_max, max_gen_max);
-            let real_best = solve(l.graph).1;
+            let real_best = solve(l.graph);
             if ai_best != real_best { points[point] = 1; }
         }
         if points.iter().sum::<usize>() < pval {
@@ -141,7 +141,7 @@ pub fn find_optimal_params(size: usize, dis_max: u32, sample_size: Option<usize>
         for point in 0..sample_size {
             let l = rand_layout(size, dis_max);
             let ai_best = sim(l.clone(), pop_size_min, max_gen_min);
-            let real_best = solve(l.graph).1;
+            let real_best = solve(l.graph);
             if ai_best != real_best { points[point] = 1; }
         }
         if points.iter().sum::<usize>() >= pval {
@@ -166,7 +166,7 @@ pub fn find_optimal_params(size: usize, dis_max: u32, sample_size: Option<usize>
         for point in 0..sample_size {
             let l = rand_layout(size, dis_max);
             let ai_best = sim(l.clone(), pop_size, max_gen);
-            let real_best = solve(l.graph).1;
+            let real_best = solve(l.graph);
             if ai_best != real_best { points[point] = 1; }
         }
         if points.iter().sum::<usize>() < pval {
